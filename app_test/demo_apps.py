@@ -15,7 +15,7 @@ class AppTest(object):
         self.spawn = SerialSpawn(self.serial)
 
     def interact(self):
-        self.spawn.expect(self.expectedPatterns, timeout=self.timeout)
+        self.spawn.test_expect(self.expectedPatterns, timeout=self.timeout)
 
     def deinit(self):
         serial_log = self.spawn.before + self.spawn.after

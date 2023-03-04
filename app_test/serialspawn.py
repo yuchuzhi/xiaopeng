@@ -110,3 +110,17 @@ class SerialSpawn(SpawnBase):
         """
         return self.serial.is_open
 
+    def test_expect(self, patterns, timeout):
+        """ expect all patterns.
+
+        Args:
+            patterns ([list]): a list of expect pattern.
+            timeout ([int]): timeout value.
+
+        Returns:
+            [int]: return result value.
+        """
+        index = self.expect(patterns, timeout=timeout)
+        assert index == (len(patterns) - 1), "Not all patterns are matched. Fail match pattern:{}.".format(patterns[index])
+        return 0
+
