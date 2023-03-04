@@ -1,0 +1,25 @@
+{
+  "name": "lpcxpresso55s28",
+  "devicename": "LPC55S28",
+  "interface": "SWD",
+  "flash_address": "0",
+  "silicon_version": "",
+  "board_version": "",
+  "debugger": {
+    "type": "jlink",
+    "usbid": "000728611500",
+    "gdbport": "64737"
+    },
+  "ports": [
+    {
+      "type": "main",
+      "port": "COM24",
+      "baudrate": "115200"
+    },
+    {
+      "type": "second",
+      "port": "",
+      "baudrate": "115200"
+    }
+  ]
+}
