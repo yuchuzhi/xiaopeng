@@ -9,5 +9,5 @@ class Case(AppTest):
 
     def interact(self):
         super().interact()
-        self.spawn.write("123asdf~!@$%^&*")
-        self.spawn.test_expect(["123asdf~!@$%^&*"], timeout=self.timeout)   
+        self.spawn.write("~!@$%^&*")
+        self.spawn.test_expect(["~!@$%^&*"], timeout=self.timeout)   

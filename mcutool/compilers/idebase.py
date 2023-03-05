@@ -25,24 +25,6 @@ class IDEBase(CompilerBase):
     # default mcutool workspace for eclipse project
     DEFAULT_MCUTK_WORKSPACE = os.path.expanduser('~') + '/mcutk_workspace'
 
-    @classmethod
-    def discover_installed(cls):
-        pass
-
-    @classmethod
-    def get_latest(cls):
-        """Search and return a latest tool instance in system
-
-        Returns:
-            Compiler object
-        """
-        instances = cls.discover_installed()
-        if not instances:
-            return
-
-        latest = get_max_version(instances)
-        return cls(latest[0], version=str(latest[1]))
-
     @staticmethod
     def parse_build_result():
         """Parse the build result: warnning? pass? failed?"""
@@ -65,6 +47,24 @@ class IDEBase(CompilerBase):
 
     def __str__(self):
         return self.name + "-" + self.version
+
+    @classmethod
+    def discover_installed(cls):
+        pass
+
+    @classmethod
+    def get_latest(cls):
+        """Search and return a latest tool instance in system
+
+        Returns:
+            Compiler object
+        """
+        instances = cls.discover_installed()
+        if not instances:
+            return
+
+        latest = get_max_version(instances)
+        return cls(latest[0], version=str(latest[1]))
 
     def transform_elf(self, type, in_file, out_file):
         """ELF file format converter.
